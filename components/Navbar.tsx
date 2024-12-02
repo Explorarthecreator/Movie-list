@@ -1,22 +1,24 @@
 import { Links } from "@/types";
 import Link from "next/link";
+import { Button } from "./ui/button";
+import { Lightbulb } from "lucide-react";
 
 const Navbar = () => {
   const links: Links[] = [
     {
-      label: "Trending",
-      link: "/trending",
-    },
-    {
       label: "List",
       link: "/list",
+    },
+    {
+      label: "Favourites",
+      link: "/favourites",
     },
   ];
 
   return (
     <div>
       <div className="w-full max-w-[1251px] m-auto p-3 md:p-5 lg:p-8 xl:px-0 border-b border-b-[#E5E7EB] flex justify-between items-center">
-        <div className="w-[109px] lg:w-[200px]">
+        <div className="">
           <h1>Explorar</h1>
         </div>
 
@@ -31,6 +33,10 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
+
+        <Button size={"icon"}>
+          <Lightbulb />
+        </Button>
       </div>
     </div>
   );
