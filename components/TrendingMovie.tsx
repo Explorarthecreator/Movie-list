@@ -4,6 +4,7 @@ import MovieListing from "./MovieListing";
 
 import TrendingSkeleton from "./TrendingSkeleton";
 import { useGetTrendingMoviesQuery } from "@/lib/features/trendings/trendingApiSlice";
+import { useAppSelector } from "@/lib/hooks";
 
 const TrendingMovie = () => {
   // const emma: APIResponse = {
@@ -70,19 +71,27 @@ const TrendingMovie = () => {
   // const { loading } = useAppSelector((state) => state.trendingMovies);
   // const dispatch = useAppDispatch();
 
-  const { data: movies, isLoading, isError } = useGetTrendingMoviesQuery({});
+  const { time_window } = useAppSelector((state) => state.trendingMovies);
+  const {
+    data: movies,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useGetTrendingMoviesQuery({ time_window });
 
   // useEffect(() => {
   //   dispatch(reset());
   //   console.log("object");
   // }, [dispatch]);
-  if (isError) {
-    return <p>Error Fetching data</p>;
+  if (isLoading) {
+    return <TrendingSkeleton />;
   }
+
   return (
     <div>
       <h1 className="text-xl font-semibold">Trending Movie</h1>
-      {isLoading ? <TrendingSkeleton /> : <MovieListing results={movies} />}
+      {isSuccess && <MovieListing results={movies} />}
+      {isError && <p>Error Loading Trending people</p>}
     </div>
   );
 };

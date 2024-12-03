@@ -3,14 +3,16 @@ import React from "react";
 import PeopleListing from "./PeopleListing";
 import { useGetTrendingPeopleQuery } from "@/lib/features/trendings/trendingApiSlice";
 import TrendingSkeleton from "./TrendingSkeleton";
+import { useAppSelector } from "@/lib/hooks";
 
 const TrendingPeople = () => {
+  const { time_window } = useAppSelector((state) => state.trendingMovies);
   const {
     data: people,
     isLoading,
     isSuccess,
     isError,
-  } = useGetTrendingPeopleQuery();
+  } = useGetTrendingPeopleQuery({ time_window });
 
   if (isLoading) {
     return <TrendingSkeleton />;
