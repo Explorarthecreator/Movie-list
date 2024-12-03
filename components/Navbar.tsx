@@ -6,12 +6,12 @@ import { Lightbulb } from "lucide-react";
 const Navbar = () => {
   const links: Links[] = [
     {
-      label: "List",
-      link: "/list",
+      label: "Movie",
+      link: "/movie",
     },
     {
       label: "Favourites",
-      link: "/favourites",
+      link: "/favorites",
     },
   ];
 

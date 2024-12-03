@@ -12,7 +12,7 @@ const TrendingFilter = () => {
     dispatch(changeTimeWindow(time_window));
   };
   return (
-    <div>
+    <div className="space-x-5">
       <Button
         variant={time_window === "day" ? "default" : "outline"}
         onClick={() => handleButtonClick("day")}

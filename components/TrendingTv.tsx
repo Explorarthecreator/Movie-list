@@ -21,7 +21,7 @@ const TrendingTv = () => {
 
   return (
     <div>
-      <h1>Trending TV</h1>
+      <h1 className="text-xl font-semibold">Trending TV</h1>
 
       {isSuccess && <TvListing tvListings={Tv} />}
       {isError && <p>Error Loading Trending Tv Series</p>}

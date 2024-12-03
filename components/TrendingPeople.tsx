@@ -17,10 +17,13 @@ const TrendingPeople = () => {
   if (isLoading) {
     return <TrendingSkeleton />;
   }
+  if (isError) {
+    console.log(isError);
+  }
 
   return (
     <div>
-      <h1>Trending People</h1>
+      <h1 className="text-xl font-semibold">Trending People</h1>
 
       {isSuccess && <PeopleListing peoplelistings={people} />}
       {isError && <p>Error Loading Trending people</p>}

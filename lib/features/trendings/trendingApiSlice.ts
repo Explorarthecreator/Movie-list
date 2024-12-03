@@ -8,11 +8,8 @@ export const trendingApiSlice = createApi({
     baseUrl: "https://api.themoviedb.org/3/trending",
     prepareHeaders: (headers) => {
       if (token) {
-        console.log(token);
         headers.set("Authorization", `Bearer ${token}`);
       }
-      console.log("object");
-      console.log(token);
       return headers;
     },
   }),

@@ -5,11 +5,13 @@ import TrendingTv from "@/components/TrendingTv";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Welcome to Explorar Movie List</h1>
+    <div className="space-y-5">
+      <h1 className="text-2xl lg:text-4xl font-bold">
+        Welcome to Explorar Movie App
+      </h1>
 
       <TrendingFilter />
-      <div className="space-y-6">
+      <div className="space-y-6 md:space-y-8 lg:space-y-12">
         <TrendingMovie />
 
         <TrendingPeople />
