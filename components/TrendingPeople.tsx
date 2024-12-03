@@ -10,11 +10,12 @@ const TrendingPeople = () => {
     isLoading,
     isSuccess,
     isError,
-  } = useGetTrendingPeopleQuery({});
+  } = useGetTrendingPeopleQuery();
 
   if (isLoading) {
     return <TrendingSkeleton />;
   }
+
   return (
     <div>
       <h1>Trending People</h1>

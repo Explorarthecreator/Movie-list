@@ -1,3 +1,4 @@
+import { PeopleResponse } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const token = process.env.NEXT_PUBLIC_API_READ_ACCESS_TOKEN;
 
@@ -23,7 +24,7 @@ export const trendingApiSlice = createApi({
       getTrendingTV: builder.query({
         query: () => `/tv/day?language=en-US`,
       }),
-      getTrendingPeople: builder.query({
+      getTrendingPeople: builder.query<PeopleResponse, void>({
         query: () => `/person/day?language=en-US`,
       }),
     };

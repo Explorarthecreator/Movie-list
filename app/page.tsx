@@ -1,6 +1,5 @@
 import TrendingMovie from "@/components/TrendingMovie";
 import TrendingPeople from "@/components/TrendingPeople";
-import TrendingSkeleton from "@/components/TrendingSkeleton";
 import TrendingTv from "@/components/TrendingTv";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
         <TrendingPeople />
         <TrendingTv />
       </div>
-      <TrendingSkeleton />
     </div>
   );
 }
