@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import trendingMovieReducer from "./features/trendingMovies/trendingMovieSlice";
+import { trendingApiSlice } from "./features/trendings/trendingApiSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       trendingMovies: trendingMovieReducer,
+      [trendingApiSlice.reducerPath]: trendingApiSlice.reducer,
+    },
+    middleware: (getDefaultMiddleware) => {
+      return getDefaultMiddleware().concat(trendingApiSlice.middleware);
     },
   });
 };

@@ -14,6 +14,8 @@ const PeopleListing = ({ peoplelistings }: Props) => {
           key={peopleListing.id}
           imgSrc={peopleListing.profile_path}
           name={peopleListing.name}
+          height={60}
+          width={32}
         />
       ))}
     </div>

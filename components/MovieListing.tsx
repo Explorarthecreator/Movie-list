@@ -13,6 +13,8 @@ const MovieListing = ({ results }: Props) => {
           key={result.id}
           imgSrc={result.poster_path}
           name={result.title}
+          width={32}
+          height={60}
         />
       ))}
     </div>
