@@ -1,15 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
 import trendingMovieReducer from "./features/trendingMovies/trendingMovieSlice";
+import movieReducer from "./features/movieState/movieSlice";
 import { trendingApiSlice } from "./features/trendings/trendingApiSlice";
+import { movieApiSlice } from "./features/movie/movieApiSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       trendingMovies: trendingMovieReducer,
+      movies: movieReducer,
       [trendingApiSlice.reducerPath]: trendingApiSlice.reducer,
+      [movieApiSlice.reducerPath]: movieApiSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware().concat(trendingApiSlice.middleware);
+      return getDefaultMiddleware()
+        .concat(trendingApiSlice.middleware)
+        .concat(movieApiSlice.middleware);
     },
   });
 };
