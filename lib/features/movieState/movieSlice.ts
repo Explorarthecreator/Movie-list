@@ -1,13 +1,16 @@
+import { Movie } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface MovieState {
   page: number;
   status: string;
+  favorite: Movie[];
 }
 
 const initialState: MovieState = {
   page: 1,
   status: "now_playing",
+  favorite: [],
 };
 
 const movieSlice = createSlice({
@@ -25,8 +28,19 @@ const movieSlice = createSlice({
         state.page = action.payload;
       }
     },
+    addToFavorite: (state, action: PayloadAction<Movie>) => {
+      state.favorite.push(action.payload);
+    },
+    removeFromFavourite: (state, action: PayloadAction<Movie>) => {
+      const newFavourites: Movie[] = state.favorite.filter(
+        (individual) => individual !== action.payload
+      );
+
+      state.favorite = newFavourites;
+    },
   },
 });
 
-export const { updatePage, updateStatus } = movieSlice.actions;
+export const { updatePage, updateStatus, addToFavorite, removeFromFavourite } =
+  movieSlice.actions;
 export default movieSlice.reducer;
