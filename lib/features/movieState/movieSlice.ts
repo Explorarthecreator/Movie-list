@@ -7,7 +7,7 @@ interface MovieState {
 
 const initialState: MovieState = {
   page: 1,
-  status: "Now Playing",
+  status: "now_playing",
 };
 
 const movieSlice = createSlice({
