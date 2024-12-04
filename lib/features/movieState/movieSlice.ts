@@ -33,9 +33,10 @@ const movieSlice = createSlice({
     },
     removeFromFavourite: (state, action: PayloadAction<Movie>) => {
       const newFavourites: Movie[] = state.favorite.filter(
-        (individual) => individual !== action.payload
+        (individual) => individual.id !== action.payload.id
       );
 
+      console.log(newFavourites);
       state.favorite = newFavourites;
     },
   },
