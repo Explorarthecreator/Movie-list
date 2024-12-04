@@ -19,7 +19,11 @@ const movieSlice = createSlice({
     },
 
     updatePage: (state, action: PayloadAction<number>) => {
-      state.page = action.payload;
+      if (action.payload < 1) {
+        state.page = 1;
+      } else {
+        state.page = action.payload;
+      }
     },
   },
 });
